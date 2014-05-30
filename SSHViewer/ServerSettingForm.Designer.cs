@@ -106,7 +106,7 @@
             this.groupBox1.Size = new System.Drawing.Size(263, 199);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "認証方法";
+            this.groupBox1.Text = "Authentication";
             // 
             // openFileDialogButton
             // 
@@ -140,10 +140,10 @@
             this.passwordRadioButton.AutoSize = true;
             this.passwordRadioButton.Location = new System.Drawing.Point(6, 40);
             this.passwordRadioButton.Name = "passwordRadioButton";
-            this.passwordRadioButton.Size = new System.Drawing.Size(70, 16);
+            this.passwordRadioButton.Size = new System.Drawing.Size(72, 16);
             this.passwordRadioButton.TabIndex = 2;
             this.passwordRadioButton.TabStop = true;
-            this.passwordRadioButton.Text = "パスワード";
+            this.passwordRadioButton.Text = "Password";
             this.passwordRadioButton.UseVisualStyleBackColor = true;
             // 
             // keyRadioButton
@@ -151,10 +151,10 @@
             this.keyRadioButton.AutoSize = true;
             this.keyRadioButton.Location = new System.Drawing.Point(6, 62);
             this.keyRadioButton.Name = "keyRadioButton";
-            this.keyRadioButton.Size = new System.Drawing.Size(59, 16);
+            this.keyRadioButton.Size = new System.Drawing.Size(78, 16);
             this.keyRadioButton.TabIndex = 1;
             this.keyRadioButton.TabStop = true;
-            this.keyRadioButton.Text = "秘密鍵";
+            this.keyRadioButton.Text = "PrivateKey";
             this.keyRadioButton.UseVisualStyleBackColor = true;
             // 
             // noAuthRadioButton
@@ -162,10 +162,10 @@
             this.noAuthRadioButton.AutoSize = true;
             this.noAuthRadioButton.Location = new System.Drawing.Point(6, 18);
             this.noAuthRadioButton.Name = "noAuthRadioButton";
-            this.noAuthRadioButton.Size = new System.Drawing.Size(66, 16);
+            this.noAuthRadioButton.Size = new System.Drawing.Size(115, 16);
             this.noAuthRadioButton.TabIndex = 0;
             this.noAuthRadioButton.TabStop = true;
-            this.noAuthRadioButton.Text = "認証なし";
+            this.noAuthRadioButton.Text = "No Authentication";
             this.noAuthRadioButton.UseVisualStyleBackColor = true;
             // 
             // label1
@@ -221,9 +221,9 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(21, 103);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(61, 12);
+            this.label4.Size = new System.Drawing.Size(65, 12);
             this.label4.TabIndex = 7;
-            this.label4.Text = "パスフレーズ";
+            this.label4.Text = "PassPhrase";
             // 
             // passphraseTextBox
             // 

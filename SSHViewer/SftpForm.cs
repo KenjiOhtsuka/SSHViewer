@@ -42,9 +42,12 @@ namespace SSHViewer
         
         private void listView1_MouseClick(object sender, MouseEventArgs e) {
             if (e.Button == MouseButtons.Right) {
+                rightClickContextMenuStrip.Show(MousePosition);
+                /*
                 rightClickContextMenuStrip.Show(
                     this.Left + this.listView1.Left + e.X,
                     this.Top + this.listView1.Top + e.Y);
+                 */
             }
         }
 
@@ -93,6 +96,7 @@ namespace SSHViewer
             } else {
                 scp.Download("file name", new System.IO.FileInfo(""));
             }*/
+            return true;
         }
     }
 }

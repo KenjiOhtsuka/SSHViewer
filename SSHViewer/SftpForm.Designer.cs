@@ -152,7 +152,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "SftpForm";
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.rightClickContextMenuStrip.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
