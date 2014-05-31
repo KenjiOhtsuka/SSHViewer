@@ -109,7 +109,7 @@ namespace SSHViewer {
 
         private void saveAsNewButton_Click(object sender, EventArgs e) {
             DataRow r = this.connectionTable.NewRow();
-            r["name"] = "test";
+            r["name"] = connectionNameTextBox.Text;
             r["host"] = serverTextBox.Text;
             r["port"] = Int32.Parse(portTextBox.Text);
             r["user"] = userNameTextBox.Text;
@@ -181,6 +181,7 @@ namespace SSHViewer {
 
         private void loadConnection(int targetIndex) {
             DataRowView selectedRow = this.connectionView[targetIndex];
+            connectionNameTextBox.Text = selectedRow["name"].ToString();
             serverTextBox.Text = selectedRow["host"].ToString();
             portTextBox.Text = selectedRow["port"].ToString();
             userNameTextBox.Text = selectedRow["user"].ToString();
@@ -205,6 +206,7 @@ namespace SSHViewer {
             if (serverSettingListBox.SelectedIndex > -1) {
                 DataRowView selectedRow = 
                     this.connectionView[serverSettingListBox.SelectedIndex];
+                selectedRow["name"] = connectionNameTextBox.Text;
                 selectedRow["host"] = serverTextBox.Text;
                 selectedRow["port"] = portTextBox.Text;
                 selectedRow["user"] = userNameTextBox.Text;
@@ -222,8 +224,26 @@ namespace SSHViewer {
             }
         }
 
-        private void serverSettingListBox_SelectedIndexChanged(object sender, EventArgs e) {
+        private void validateInput() {
 
+
+        }
+
+        private void Remove_Click(object sender, EventArgs e) {
+            if (serverSettingListBox.SelectedIndex > -1) {
+                this.connectionView[serverSettingListBox.SelectedIndex].Delete();
+            }
+        }
+
+        private void clear() {
+            connectionNameTextBox.Clear();
+            serverTextBox.Clear();
+            portTextBox.Clear();
+            userNameTextBox.Clear();
+            noAuthRadioButton.Checked = true;
+            fileNameLabel.Text = "";
+            passwordTextBox.Clear();
+            passphraseTextBox.Clear();
         }
     }
 }

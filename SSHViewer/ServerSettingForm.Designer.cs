@@ -45,7 +45,7 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.Remove = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.connectionNameTextBox = new System.Windows.Forms.TextBox();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.label6 = new System.Windows.Forms.Label();
@@ -73,7 +73,6 @@
             this.serverSettingListBox.Size = new System.Drawing.Size(225, 280);
             this.serverSettingListBox.TabIndex = 0;
             this.serverSettingListBox.Click += new System.EventHandler(this.serverSettingListBox_Click);
-            this.serverSettingListBox.SelectedIndexChanged += new System.EventHandler(this.serverSettingListBox_SelectedIndexChanged);
             // 
             // connectButton
             // 
@@ -280,6 +279,7 @@
             this.Remove.TabIndex = 11;
             this.Remove.Text = "&Remove";
             this.Remove.UseVisualStyleBackColor = true;
+            this.Remove.Click += new System.EventHandler(this.Remove_Click);
             // 
             // label5
             // 
@@ -290,14 +290,14 @@
             this.label5.TabIndex = 12;
             this.label5.Text = "connection name";
             // 
-            // textBox1
+            // connectionNameTextBox
             // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.connectionNameTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.Location = new System.Drawing.Point(104, 12);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(147, 19);
-            this.textBox1.TabIndex = 13;
+            this.connectionNameTextBox.Location = new System.Drawing.Point(104, 12);
+            this.connectionNameTextBox.Name = "connectionNameTextBox";
+            this.connectionNameTextBox.Size = new System.Drawing.Size(147, 19);
+            this.connectionNameTextBox.TabIndex = 13;
             // 
             // splitContainer1
             // 
@@ -334,7 +334,7 @@
             // 
             // splitContainer2.Panel2
             // 
-            this.splitContainer2.Panel2.Controls.Add(this.textBox1);
+            this.splitContainer2.Panel2.Controls.Add(this.connectionNameTextBox);
             this.splitContainer2.Panel2.Controls.Add(this.serverTextBox);
             this.splitContainer2.Panel2.Controls.Add(this.portTextBox);
             this.splitContainer2.Panel2.Controls.Add(this.groupBox1);
@@ -364,6 +364,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(533, 334);
             this.Controls.Add(this.splitContainer1);
+            this.MinimumSize = new System.Drawing.Size(500, 350);
             this.Name = "ServerSettingForm";
             this.Text = "ServerSettingForm";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ServerSettingForm_FormClosing);
@@ -407,7 +408,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button Remove;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox connectionNameTextBox;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.SplitContainer splitContainer2;
         private System.Windows.Forms.Label label6;
