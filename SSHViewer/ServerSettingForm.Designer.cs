@@ -23,12 +23,14 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.serverSettingListBox = new System.Windows.Forms.ListBox();
             this.connectButton = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.saveAsNewButton = new System.Windows.Forms.Button();
             this.serverTextBox = new System.Windows.Forms.TextBox();
             this.portTextBox = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.passphraseTextBox = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.openFileDialogButton = new System.Windows.Forms.Button();
             this.fileNameLabel = new System.Windows.Forms.Label();
             this.passwordTextBox = new System.Windows.Forms.TextBox();
@@ -41,21 +43,19 @@
             this.label3 = new System.Windows.Forms.Label();
             this.saveButton = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.label4 = new System.Windows.Forms.Label();
-            this.passphraseTextBox = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // listBox1
+            // serverSettingListBox
             // 
-            this.listBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.serverSettingListBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 12;
-            this.listBox1.Location = new System.Drawing.Point(12, 12);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(238, 280);
-            this.listBox1.TabIndex = 0;
+            this.serverSettingListBox.FormattingEnabled = true;
+            this.serverSettingListBox.ItemHeight = 12;
+            this.serverSettingListBox.Location = new System.Drawing.Point(12, 12);
+            this.serverSettingListBox.Name = "serverSettingListBox";
+            this.serverSettingListBox.Size = new System.Drawing.Size(238, 280);
+            this.serverSettingListBox.TabIndex = 0;
             // 
             // connectButton
             // 
@@ -63,18 +63,19 @@
             this.connectButton.Name = "connectButton";
             this.connectButton.Size = new System.Drawing.Size(75, 23);
             this.connectButton.TabIndex = 1;
-            this.connectButton.Text = "Connect";
+            this.connectButton.Text = "&Connect";
             this.connectButton.UseVisualStyleBackColor = true;
             this.connectButton.Click += new System.EventHandler(this.connectButton_Click);
             // 
-            // button2
+            // saveAsNewButton
             // 
-            this.button2.Location = new System.Drawing.Point(12, 298);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            this.saveAsNewButton.Location = new System.Drawing.Point(12, 298);
+            this.saveAsNewButton.Name = "saveAsNewButton";
+            this.saveAsNewButton.Size = new System.Drawing.Size(103, 23);
+            this.saveAsNewButton.TabIndex = 2;
+            this.saveAsNewButton.Text = "Save as &New";
+            this.saveAsNewButton.UseVisualStyleBackColor = true;
+            this.saveAsNewButton.Click += new System.EventHandler(this.saveAsNewButton_Click);
             // 
             // serverTextBox
             // 
@@ -107,6 +108,23 @@
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Authentication";
+            // 
+            // passphraseTextBox
+            // 
+            this.passphraseTextBox.Location = new System.Drawing.Point(21, 119);
+            this.passphraseTextBox.Name = "passphraseTextBox";
+            this.passphraseTextBox.PasswordChar = '*';
+            this.passphraseTextBox.Size = new System.Drawing.Size(205, 19);
+            this.passphraseTextBox.TabIndex = 8;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(21, 103);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(65, 12);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "PassPhrase";
             // 
             // openFileDialogButton
             // 
@@ -160,6 +178,7 @@
             // noAuthRadioButton
             // 
             this.noAuthRadioButton.AutoSize = true;
+            this.noAuthRadioButton.Checked = true;
             this.noAuthRadioButton.Location = new System.Drawing.Point(6, 18);
             this.noAuthRadioButton.Name = "noAuthRadioButton";
             this.noAuthRadioButton.Size = new System.Drawing.Size(115, 16);
@@ -208,30 +227,13 @@
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(75, 23);
             this.saveButton.TabIndex = 10;
-            this.saveButton.Text = "Save";
+            this.saveButton.Text = "&Save";
             this.saveButton.UseVisualStyleBackColor = true;
             // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             this.openFileDialog1.Filter = "ssh key|*.pem";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(21, 103);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(65, 12);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "PassPhrase";
-            // 
-            // passphraseTextBox
-            // 
-            this.passphraseTextBox.Location = new System.Drawing.Point(21, 119);
-            this.passphraseTextBox.Name = "passphraseTextBox";
-            this.passphraseTextBox.PasswordChar = '*';
-            this.passphraseTextBox.Size = new System.Drawing.Size(205, 19);
-            this.passphraseTextBox.TabIndex = 8;
             // 
             // ServerSettingForm
             // 
@@ -246,11 +248,12 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.portTextBox);
             this.Controls.Add(this.serverTextBox);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.saveAsNewButton);
             this.Controls.Add(this.connectButton);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.serverSettingListBox);
             this.Name = "ServerSettingForm";
             this.Text = "ServerSettingForm";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ServerSettingForm_FormClosing);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -260,9 +263,9 @@
 
         #endregion
 
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox serverSettingListBox;
         private System.Windows.Forms.Button connectButton;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button saveAsNewButton;
         private System.Windows.Forms.TextBox serverTextBox;
         private System.Windows.Forms.TextBox portTextBox;
         private System.Windows.Forms.GroupBox groupBox1;

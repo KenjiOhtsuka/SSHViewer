@@ -41,6 +41,10 @@
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.userNameStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.workingDirectoryStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
+            this.permColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.ownerColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.groupColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.rightClickContextMenuStrip.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.statusStrip.SuspendLayout();
@@ -49,16 +53,21 @@
             // listView1
             // 
             this.listView1.AllowColumnReorder = true;
+            this.listView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.typeColumnHeader,
             this.nameColumnHeader,
-            this.sizeColumnHeader});
-            this.listView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.typeColumnHeader,
+            this.sizeColumnHeader,
+            this.permColumnHeader,
+            this.ownerColumnHeader,
+            this.groupColumnHeader});
             this.listView1.Font = new System.Drawing.Font("MS Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.listView1.FullRowSelect = true;
-            this.listView1.Location = new System.Drawing.Point(0, 0);
+            this.listView1.Location = new System.Drawing.Point(0, 27);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(527, 464);
+            this.listView1.Size = new System.Drawing.Size(527, 363);
             this.listView1.Sorting = System.Windows.Forms.SortOrder.Ascending;
             this.listView1.TabIndex = 1;
             this.listView1.UseCompatibleStateImageBehavior = false;
@@ -69,12 +78,15 @@
             // 
             // typeColumnHeader
             // 
+            this.typeColumnHeader.DisplayIndex = 0;
             this.typeColumnHeader.Text = "Type";
+            this.typeColumnHeader.Width = 40;
             // 
             // nameColumnHeader
             // 
+            this.nameColumnHeader.DisplayIndex = 1;
             this.nameColumnHeader.Text = "Name";
-            this.nameColumnHeader.Width = 258;
+            this.nameColumnHeader.Width = 200;
             // 
             // sizeColumnHeader
             // 
@@ -86,13 +98,14 @@
             this.rightClickContextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.downloadStripMenuItem});
             this.rightClickContextMenuStrip.Name = "rightClickContextMenuStrip";
-            this.rightClickContextMenuStrip.Size = new System.Drawing.Size(129, 26);
+            this.rightClickContextMenuStrip.Size = new System.Drawing.Size(153, 48);
             // 
             // downloadStripMenuItem
             // 
             this.downloadStripMenuItem.Name = "downloadStripMenuItem";
-            this.downloadStripMenuItem.Size = new System.Drawing.Size(128, 22);
+            this.downloadStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.downloadStripMenuItem.Text = "&Download";
+            this.downloadStripMenuItem.Click += new System.EventHandler(this.downloadStripMenuItem_Click);
             // 
             // menuStrip1
             // 
@@ -122,7 +135,7 @@
             this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.userNameStripStatusLabel,
             this.workingDirectoryStripStatusLabel});
-            this.statusStrip.Location = new System.Drawing.Point(0, 442);
+            this.statusStrip.Location = new System.Drawing.Point(0, 393);
             this.statusStrip.Name = "statusStrip";
             this.statusStrip.Size = new System.Drawing.Size(527, 22);
             this.statusStrip.SizingGrip = false;
@@ -141,11 +154,23 @@
             this.workingDirectoryStripStatusLabel.Size = new System.Drawing.Size(108, 17);
             this.workingDirectoryStripStatusLabel.Text = "(working directory)";
             // 
+            // permColumnHeader
+            // 
+            this.permColumnHeader.Text = "Perm";
+            // 
+            // ownerColumnHeader
+            // 
+            this.ownerColumnHeader.Text = "Owner";
+            // 
+            // groupColumnHeader
+            // 
+            this.groupColumnHeader.Text = "Group";
+            // 
             // SftpForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(527, 464);
+            this.ClientSize = new System.Drawing.Size(527, 415);
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.listView1);
@@ -176,6 +201,10 @@
         private System.Windows.Forms.ToolStripStatusLabel workingDirectoryStripStatusLabel;
         private System.Windows.Forms.ToolStripMenuItem refreshToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem disconnectToolStripMenuItem;
+        private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog;
+        private System.Windows.Forms.ColumnHeader permColumnHeader;
+        private System.Windows.Forms.ColumnHeader ownerColumnHeader;
+        private System.Windows.Forms.ColumnHeader groupColumnHeader;
 
     }
 }
