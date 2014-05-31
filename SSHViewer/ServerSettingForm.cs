@@ -200,5 +200,30 @@ namespace SSHViewer {
                     break;
             }
         }
+
+        private void saveButton_Click(object sender, EventArgs e) {
+            if (serverSettingListBox.SelectedIndex > -1) {
+                DataRowView selectedRow = 
+                    this.connectionView[serverSettingListBox.SelectedIndex];
+                selectedRow["host"] = serverTextBox.Text;
+                selectedRow["port"] = portTextBox.Text;
+                selectedRow["user"] = userNameTextBox.Text;
+                if (passwordRadioButton.Checked) {
+                    selectedRow["authtype"] = AuthType.Password;
+                    selectedRow["password"] = passwordTextBox.Text;
+                } else {
+                    if (keyRadioButton.Checked) {
+                        selectedRow["authtype"] = AuthType.PrivateKey;
+                        selectedRow["passphrase"] = passphraseTextBox.Text;
+                    } else {
+                        selectedRow["authtype"] = AuthType.None;
+                    }
+                }
+            }
+        }
+
+        private void serverSettingListBox_SelectedIndexChanged(object sender, EventArgs e) {
+
+        }
     }
 }

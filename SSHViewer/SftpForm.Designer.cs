@@ -30,9 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             this.listView1 = new System.Windows.Forms.ListView();
-            this.typeColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.nameColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.typeColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.sizeColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.permColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.ownerColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.groupColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.rightClickContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.downloadStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -42,9 +45,6 @@
             this.userNameStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.workingDirectoryStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
-            this.permColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.ownerColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.groupColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.rightClickContextMenuStrip.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.statusStrip.SuspendLayout();
@@ -76,34 +76,46 @@
             this.listView1.DoubleClick += new System.EventHandler(this.listView1_DoubleClick);
             this.listView1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listView1_MouseClick);
             // 
-            // typeColumnHeader
-            // 
-            this.typeColumnHeader.DisplayIndex = 0;
-            this.typeColumnHeader.Text = "Type";
-            this.typeColumnHeader.Width = 40;
-            // 
             // nameColumnHeader
             // 
             this.nameColumnHeader.DisplayIndex = 1;
             this.nameColumnHeader.Text = "Name";
             this.nameColumnHeader.Width = 200;
             // 
+            // typeColumnHeader
+            // 
+            this.typeColumnHeader.DisplayIndex = 0;
+            this.typeColumnHeader.Text = "Type";
+            this.typeColumnHeader.Width = 40;
+            // 
             // sizeColumnHeader
             // 
             this.sizeColumnHeader.Text = "Size";
             this.sizeColumnHeader.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // permColumnHeader
+            // 
+            this.permColumnHeader.Text = "Perm";
+            // 
+            // ownerColumnHeader
+            // 
+            this.ownerColumnHeader.Text = "Owner";
+            // 
+            // groupColumnHeader
+            // 
+            this.groupColumnHeader.Text = "Group";
             // 
             // rightClickContextMenuStrip
             // 
             this.rightClickContextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.downloadStripMenuItem});
             this.rightClickContextMenuStrip.Name = "rightClickContextMenuStrip";
-            this.rightClickContextMenuStrip.Size = new System.Drawing.Size(153, 48);
+            this.rightClickContextMenuStrip.Size = new System.Drawing.Size(129, 26);
             // 
             // downloadStripMenuItem
             // 
             this.downloadStripMenuItem.Name = "downloadStripMenuItem";
-            this.downloadStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.downloadStripMenuItem.Size = new System.Drawing.Size(128, 22);
             this.downloadStripMenuItem.Text = "&Download";
             this.downloadStripMenuItem.Click += new System.EventHandler(this.downloadStripMenuItem_Click);
             // 
@@ -153,18 +165,6 @@
             this.workingDirectoryStripStatusLabel.Name = "workingDirectoryStripStatusLabel";
             this.workingDirectoryStripStatusLabel.Size = new System.Drawing.Size(108, 17);
             this.workingDirectoryStripStatusLabel.Text = "(working directory)";
-            // 
-            // permColumnHeader
-            // 
-            this.permColumnHeader.Text = "Perm";
-            // 
-            // ownerColumnHeader
-            // 
-            this.ownerColumnHeader.Text = "Owner";
-            // 
-            // groupColumnHeader
-            // 
-            this.groupColumnHeader.Text = "Group";
             // 
             // SftpForm
             // 
