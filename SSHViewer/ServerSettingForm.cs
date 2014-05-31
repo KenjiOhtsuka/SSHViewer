@@ -172,5 +172,33 @@ namespace SSHViewer {
                 xDoc.Save(this.configFileName);
             }
         }
+
+        private void serverSettingListBox_Click(object sender, EventArgs e) {
+            if (serverSettingListBox.SelectedIndex > -1) {
+                loadConnection(serverSettingListBox.SelectedIndex);
+            }
+        }
+
+        private void loadConnection(int targetIndex) {
+            DataRowView selectedRow = this.connectionView[targetIndex];
+            serverTextBox.Text = selectedRow["host"].ToString();
+            portTextBox.Text = selectedRow["port"].ToString();
+            userNameTextBox.Text = selectedRow["user"].ToString();
+            switch ((AuthType)selectedRow["authtype"]) {
+                case AuthType.Password:
+                    passwordRadioButton.Checked = true;
+                    passwordTextBox.Text = selectedRow["password"].ToString();
+                    break;
+                case AuthType.PrivateKey:
+                    keyRadioButton.Checked = true;
+                    fileNameLabel.Text = selectedRow["privatekey"].ToString();
+                    passphraseTextBox.Text = 
+                        selectedRow["passphrase"].ToString();
+                    break;
+                default:
+                    noAuthRadioButton.Checked = true;
+                    break;
+            }
+        }
     }
 }

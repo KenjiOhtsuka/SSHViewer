@@ -56,6 +56,7 @@
             this.serverSettingListBox.Name = "serverSettingListBox";
             this.serverSettingListBox.Size = new System.Drawing.Size(238, 280);
             this.serverSettingListBox.TabIndex = 0;
+            this.serverSettingListBox.Click += new System.EventHandler(this.serverSettingListBox_Click);
             // 
             // connectButton
             // 
