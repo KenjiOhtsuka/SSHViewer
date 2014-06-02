@@ -109,21 +109,7 @@ namespace SSHViewer {
 
         private void saveAsNewButton_Click(object sender, EventArgs e) {
             DataRow r = this.connectionTable.NewRow();
-            r["name"] = connectionNameTextBox.Text;
-            r["host"] = serverTextBox.Text;
-            r["port"] = Int32.Parse(portTextBox.Text);
-            r["user"] = userNameTextBox.Text;
-            if (noAuthRadioButton.Checked) {
-                r["authtype"] = AuthType.None;
-            }
-            if (passwordRadioButton.Checked) {
-                r["authtype"] = AuthType.Password;
-            }
-            if (keyRadioButton.Checked) {
-                r["authtype"] = AuthType.PrivateKey;
-                r["privatekey"] = fileNameLabel.Text;
-                r["passphrase"] = passphraseTextBox.Text;
-            }
+            updateConnectionTableRow(r);
             this.connectionTable.Rows.Add(r);
         }
 
@@ -202,25 +188,31 @@ namespace SSHViewer {
             }
         }
 
+        private DataRow updateConnectionTableRow(DataRow r) {
+            r["name"] = connectionNameTextBox.Text;
+            r["host"] = serverTextBox.Text;
+            r["port"] = Int32.Parse(portTextBox.Text);
+            r["user"] = userNameTextBox.Text;
+            if (noAuthRadioButton.Checked) {
+                r["authtype"] = AuthType.None;
+            }
+            if (passwordRadioButton.Checked) {
+                r["authtype"] = AuthType.Password;
+                r["password"] = passwordTextBox.Text;
+            }
+            if (keyRadioButton.Checked) {
+                r["authtype"] = AuthType.PrivateKey;
+                r["privatekey"] = fileNameLabel.Text;
+                r["passphrase"] = passphraseTextBox.Text;
+            }
+            return r;
+        }
+
         private void saveButton_Click(object sender, EventArgs e) {
             if (serverSettingListBox.SelectedIndex > -1) {
-                DataRowView selectedRow = 
+                DataRowView selectedRow =
                     this.connectionView[serverSettingListBox.SelectedIndex];
-                selectedRow["name"] = connectionNameTextBox.Text;
-                selectedRow["host"] = serverTextBox.Text;
-                selectedRow["port"] = portTextBox.Text;
-                selectedRow["user"] = userNameTextBox.Text;
-                if (passwordRadioButton.Checked) {
-                    selectedRow["authtype"] = AuthType.Password;
-                    selectedRow["password"] = passwordTextBox.Text;
-                } else {
-                    if (keyRadioButton.Checked) {
-                        selectedRow["authtype"] = AuthType.PrivateKey;
-                        selectedRow["passphrase"] = passphraseTextBox.Text;
-                    } else {
-                        selectedRow["authtype"] = AuthType.None;
-                    }
-                }
+                updateConnectionTableRow(selectedRow.Row);
             }
         }
 
